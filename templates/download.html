@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Download dos Vídeos</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f0f8ff; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    h1 { color: #2e7d32; text-align: center; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; }
+    a { text-decoration: none; color: #1b5e20; font-weight: bold; }
+    a:hover { color: #004d40; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎉 Vídeos Gerados!</h1>
+  <p>Selecione os vídeos para baixar:</p>
+
+  <ul>
+    {% for file in files %}
+      <li>
+        <a href="{{ url_for('serve_file', filename=file) }}" download>{{ file }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+</body>
+</html>
